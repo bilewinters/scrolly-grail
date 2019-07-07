@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text } from "react-native";
 
-const Cell = ({ value }) => (
+const Cell = ({ value, style }) => (
   <View
     style={{
       borderWidth: 1,
@@ -10,7 +10,8 @@ const Cell = ({ value }) => (
       borderColor: "black",
       padding: 5,
       width: 100,
-      height: 30
+      height: 30,
+      ...style
     }}
   >
     <Text>{value}</Text>

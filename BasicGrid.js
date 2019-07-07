@@ -2,9 +2,9 @@ import React from "react";
 import { View } from "react-native";
 
 import Cell from "./Cell";
-import { generateGridData } from "./gridUtils";
+import { cachedGridData } from "./gridUtils";
 
-const BasicGrid = ({ data = generateGridData(20, 50) }) => (
+const BasicGrid = ({ data = cachedGridData }) => (
   <View style={{ flex: 1 }}>
     {data.map(({ id: rowId, data: rowData }) => (
       <View key={rowId} style={{ flexDirection: "row" }}>

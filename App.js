@@ -4,12 +4,14 @@ import { createStackNavigator, createAppContainer } from "react-navigation";
 
 import BasicGrid from "./BasicGrid";
 import ScrollingGrid from "./ScrollingGrid";
+import ScrollingGridFixedHeader from "./ScrollingGridFixedHeader";
 
 const Menu = ({ navigation }) => (
   <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
     <Text>Menu</Text>
     <Button title="Basic Grid" onPress={() => navigation.navigate("BasicGrid")} />
     <Button title="Scrolling Grid" onPress={() => navigation.navigate("ScrollingGrid")} />
+    <Button title="Fixed Header Grid" onPress={() => navigation.navigate("ScrollingGridFixedHeader")} />
   </View>
 );
 Menu.navigationOptions = ({ navigation }) => ({
@@ -22,15 +24,21 @@ BasicGrid.navigationOptions = ({ navigation }) => ({
 });
 
 const ScrollingGridScreen = () => <ScrollingGrid />;
-BasicGrid.navigationOptions = ({ navigation }) => ({
-  title: "Scrolling Grid"
+ScrollingGridScreen.navigationOptions = ({ navigation }) => ({
+  title: "Scrolling"
+});
+
+const ScrollingGridFixedHeaderScreen = () => <ScrollingGridFixedHeader />;
+ScrollingGridFixedHeader.navigationOptions = ({ navigation }) => ({
+  title: "Fixed Header"
 });
 
 const AppNavigator = createStackNavigator(
   {
     Menu: Menu,
-    BasicGrid: BasicGrid,
-    ScrollingGrid: ScrollingGrid
+    BasicGrid: BasicGridScreen,
+    ScrollingGrid: ScrollingGridScreen,
+    ScrollingGridFixedHeader: ScrollingGridFixedHeader
   },
   {
     initialRouteName: "Menu"
