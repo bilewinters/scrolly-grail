@@ -5,6 +5,7 @@ import { createStackNavigator, createAppContainer } from "react-navigation";
 import BasicGrid from "./BasicGrid";
 import ScrollingGrid from "./ScrollingGrid";
 import ScrollingGridFixedHeader from "./ScrollingGridFixedHeader";
+import ScrollingGridFixedColumn from "./ScrollingGridFixedColumn";
 
 const Menu = ({ navigation }) => (
   <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
@@ -12,6 +13,7 @@ const Menu = ({ navigation }) => (
     <Button title="Basic Grid" onPress={() => navigation.navigate("BasicGrid")} />
     <Button title="Scrolling Grid" onPress={() => navigation.navigate("ScrollingGrid")} />
     <Button title="Fixed Header Grid" onPress={() => navigation.navigate("ScrollingGridFixedHeader")} />
+    <Button title="Fixed Column Grid" onPress={() => navigation.navigate("ScrollingGridFixedColumn")} />
   </View>
 );
 Menu.navigationOptions = ({ navigation }) => ({
@@ -19,7 +21,7 @@ Menu.navigationOptions = ({ navigation }) => ({
 });
 
 const BasicGridScreen = () => <BasicGrid />;
-BasicGrid.navigationOptions = ({ navigation }) => ({
+BasicGridScreen.navigationOptions = ({ navigation }) => ({
   title: "Basic Grid"
 });
 
@@ -29,8 +31,13 @@ ScrollingGridScreen.navigationOptions = ({ navigation }) => ({
 });
 
 const ScrollingGridFixedHeaderScreen = () => <ScrollingGridFixedHeader />;
-ScrollingGridFixedHeader.navigationOptions = ({ navigation }) => ({
+ScrollingGridFixedHeaderScreen.navigationOptions = ({ navigation }) => ({
   title: "Fixed Header"
+});
+
+const ScrollingGridFixedColumnScreen = () => <ScrollingGridFixedColumn />;
+ScrollingGridFixedColumnScreen.navigationOptions = ({ navigation }) => ({
+  title: "Fixed Column"
 });
 
 const AppNavigator = createStackNavigator(
@@ -38,7 +45,8 @@ const AppNavigator = createStackNavigator(
     Menu: Menu,
     BasicGrid: BasicGridScreen,
     ScrollingGrid: ScrollingGridScreen,
-    ScrollingGridFixedHeader: ScrollingGridFixedHeader
+    ScrollingGridFixedHeader: ScrollingGridFixedHeader,
+    ScrollingGridFixedColumn: ScrollingGridFixedColumn
   },
   {
     initialRouteName: "Menu"
