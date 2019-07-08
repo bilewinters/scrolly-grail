@@ -14,7 +14,7 @@ const Cell = ({ value, style }) => (
       ...style
     }}
   >
-    <Text>{value}</Text>
+    <Text numberOfLines={1}>{value}</Text>
   </View>
 );
 
