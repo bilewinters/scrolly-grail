@@ -6,6 +6,7 @@ import BasicGrid from "./BasicGrid";
 import ScrollingGrid from "./ScrollingGrid";
 import ScrollingGridFixedHeader from "./ScrollingGridFixedHeader";
 import ScrollingGridFixedColumn from "./ScrollingGridFixedColumn";
+import ScrollingGridSyncedColumn from "./ScrollingGridSyncedColumn";
 
 const Menu = ({ navigation }) => (
   <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
@@ -14,6 +15,7 @@ const Menu = ({ navigation }) => (
     <Button title="Scrolling Grid" onPress={() => navigation.navigate("ScrollingGrid")} />
     <Button title="Fixed Header Grid" onPress={() => navigation.navigate("ScrollingGridFixedHeader")} />
     <Button title="Fixed Column Grid" onPress={() => navigation.navigate("ScrollingGridFixedColumn")} />
+    <Button title="Synced Column Grid" onPress={() => navigation.navigate("ScrollingGridSyncedColumn")} />
   </View>
 );
 Menu.navigationOptions = ({ navigation }) => ({
@@ -40,13 +42,19 @@ ScrollingGridFixedColumnScreen.navigationOptions = ({ navigation }) => ({
   title: "Fixed Column"
 });
 
+const ScrollingGridSyncedColumnScreen = () => <ScrollingGridSyncedColumn />;
+ScrollingGridSyncedColumnScreen.navigationOptions = ({ navigation }) => ({
+  title: "Synced Column"
+});
+
 const AppNavigator = createStackNavigator(
   {
     Menu: Menu,
     BasicGrid: BasicGridScreen,
     ScrollingGrid: ScrollingGridScreen,
     ScrollingGridFixedHeader: ScrollingGridFixedHeader,
-    ScrollingGridFixedColumn: ScrollingGridFixedColumn
+    ScrollingGridFixedColumn: ScrollingGridFixedColumn,
+    ScrollingGridSyncedColumn: ScrollingGridSyncedColumn
   },
   {
     initialRouteName: "Menu"
