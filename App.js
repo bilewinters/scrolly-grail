@@ -8,6 +8,7 @@ import ScrollingGridFixedHeader from "./ScrollingGridFixedHeader";
 import ScrollingGridFixedColumn from "./ScrollingGridFixedColumn";
 import ScrollingGridSyncedColumn from "./ScrollingGridSyncedColumn";
 import ScrollingGridPanResponder from "./ScrollingGridPanResponder";
+import ScrollingGridPanResponderAndroidFix from "./ScrollingGridPanResponderAndroidFix";
 
 const Button = ({ title, onPress }) => (
   <TouchableOpacity
@@ -33,6 +34,10 @@ const Menu = ({ navigation }) => (
     <Button title="Fixed Column Grid" onPress={() => navigation.navigate("ScrollingGridFixedColumn")} />
     <Button title="Synced Column Grid" onPress={() => navigation.navigate("ScrollingGridSyncedColumn")} />
     <Button title="Pan Responder Grid" onPress={() => navigation.navigate("ScrollingGridPanResponder")} />
+    <Button
+      title="Pan Responder Grid (Android Fix...)"
+      onPress={() => navigation.navigate("ScrollingGridPanResponderAndroidFix")}
+    />
   </View>
 );
 Menu.navigationOptions = ({ navigation }) => ({
@@ -69,6 +74,11 @@ ScrollingGridPanResponderScreen.navigationOptions = ({ navigation }) => ({
   title: "Pan Responder"
 });
 
+const ScrollingGridPanResponderAndroidFixScreen = () => <ScrollingGridPanResponderAndroidFix />;
+ScrollingGridPanResponderAndroidFixScreen.navigationOptions = ({ navigation }) => ({
+  title: "Pan Responder (Fixed!)"
+});
+
 const AppNavigator = createStackNavigator(
   {
     Menu: Menu,
@@ -77,7 +87,8 @@ const AppNavigator = createStackNavigator(
     ScrollingGridFixedHeader: ScrollingGridFixedHeaderScreen,
     ScrollingGridFixedColumn: ScrollingGridFixedColumnScreen,
     ScrollingGridSyncedColumn: ScrollingGridSyncedColumnScreen,
-    ScrollingGridPanResponder: ScrollingGridPanResponderScreen
+    ScrollingGridPanResponder: ScrollingGridPanResponderScreen,
+    ScrollingGridPanResponderAndroidFix: ScrollingGridPanResponderAndroidFixScreen
   },
   {
     initialRouteName: "Menu"
