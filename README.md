@@ -35,4 +35,6 @@ yarn start
 
 # Motivation
 
-This repo is supposed to accompany a talk, links to a video of this and some slides will be available at some point...
+This repo is supposed to accompany this talk:
+
+[![Scrolly Grail Video](https://img.youtube.com/vi/NHQXLHwpImU/0.jpg)](https://www.youtube.com/watch?v=NHQXLHwpImU)
